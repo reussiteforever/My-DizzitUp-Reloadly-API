@@ -8,8 +8,8 @@ app.use(express.json());
 
 app.get("/topup", async (req, res) => {
   let api = new ReloadlyTopup.AirtimeApi(
-    "rzcLzmMmxZ919IVPgQlr6MDxiJRkEyjA",
-    "7qpcVxQZ44-DDe1PBoZkM4b7WGnUBY-600Tkaol88NOrPn8yoeojMgQALtFGuDC",
+    "aLZwVjy3BTrx8yaFsb4iKgqFE2VGkpfs",
+    "jOzKRlZVfB-WNlS88TEVt9uiNZtubg-XlKcY8D0cOWiZa6OIjcPe2BI7ZLAZ2an",
     null,
     ReloadlyCore.ServiceURLs.AIRTIME_SANDBOX
   );
@@ -52,4 +52,4 @@ app.get("/topup", async (req, res) => {
   }
 });
 
-app.listen(5000, () => { console.log("server started on port 5000")});
+app.listen(3000, () => { console.log("server started on port 5000")});

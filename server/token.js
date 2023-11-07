@@ -14,7 +14,7 @@ app.get("/token", async (req, res) => {
     let operation = api.clientCredentials();
     let request = operation.getAccessToken();
     let response = await request.execute();
-    console.log("access token: " + response);
+    console.log(response);
     res.send(`<html>
     <head>
         <meta charset="UTF-8">
@@ -26,11 +26,11 @@ app.get("/token", async (req, res) => {
         <div class="container">
         <h1 class="display-4 text-center py-1">Top-up App</h1>
         <p class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
-        We've received your access token
+        We've received your access token!
         </p>
         </div>
     </body>
     </html>`);
 });
 
-app.listen(5000);
+app.listen(3000);
