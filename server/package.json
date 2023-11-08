@@ -1,12 +1,15 @@
 {
   "name": "server",
   "version": "1.0.0",
+  "proxy": "http://localhost:2000",
   "description": "",
   "main": "token.js",
+  "type": "module",
   "scripts": {
+    "watch": "nodemon topup.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server",
-    "dev": "nodemon server"
+    "start": "node token.js",
+    "dev": "nodemon token.js"
   },
   "keywords": [],
   "author": "Adriana Camarotto",
@@ -14,8 +17,10 @@
   "dependencies": {
     "@reloadly/reloadly.airtime": "^1.0.6",
     "@reloadly/reloadly.authentication": "^1.0.6",
+    "@reloadly/reloadly.core": "^1.0.6",
     "axios": "^1.6.0",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"

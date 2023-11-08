@@ -1,17 +1,18 @@
-const ReloadlyTopup = require("@reloadly/reloadly.airtime");
-const ReloadlyCore = require("@reloadly/reloadly.core");
-const express = require("express");
+import { AirtimeApi, PhoneTopupRequest, Phone} from "@reloadly/reloadly.airtime";
+import { ServiceURLs } from "@reloadly/reloadly.core";
+import express, { json } from "express";
+
 
 
 let app = express();
-app.use(express.json());
+app.use(json());
 
 app.get("/topup", async (req, res) => {
-  let api = new ReloadlyTopup.AirtimeApi(
-    "aLZwVjy3BTrx8yaFsb4iKgqFE2VGkpfs",
-    "jOzKRlZVfB-WNlS88TEVt9uiNZtubg-XlKcY8D0cOWiZa6OIjcPe2BI7ZLAZ2an",
+  let api = new AirtimeApi(
+    "aLZwVjy3BTrx8yaFsb4iKgqFE2VGkpfs", 
+    "7qpcVxQZ44-DDe1PBoZkM4b7WGnUBY-600Tkaol88NOrPn8yoeojMgQALtFGuDC", 
     null,
-    ReloadlyCore.ServiceURLs.AIRTIME_SANDBOX
+    ServiceURLs.AIRTIME_SANDBOX
   );
   let operation;
   try {
@@ -20,12 +21,12 @@ app.get("/topup", async (req, res) => {
     res.send(err);
   }
   let request = operation.send(
-    new ReloadlyTopup.PhoneTopupRequest(
-      20,
-      341,
-      new ReloadlyTopup.Phone("07738771515", "UK"),
-      true,
-      new ReloadlyTopup.Phone("007738771515", "UK")
+    new PhoneTopupRequest(
+      5,
+      350,
+      new Phone('7771413517', 'GB'), 
+      true, 
+      new Phone('7738771515', 'GB')
     )
   );
   try {
@@ -52,4 +53,8 @@ app.get("/topup", async (req, res) => {
   }
 });
 
-app.listen(3000, () => { console.log("server started on port 5000")});
+app.listen(4000, () => {
+  console.log("server started on port 4000")
+});
+
+

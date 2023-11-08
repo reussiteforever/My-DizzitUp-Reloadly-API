@@ -1,15 +1,15 @@
-const ReloadlyAuthentication = require("@reloadly/reloadly.authentication");
-const ReloadlyCore = require("@reloadly/reloadly.core");
-const express = require("express");
+import { AuthenticationApi } from "@reloadly/reloadly.authentication";
+import { ServiceURLs } from "@reloadly/reloadly.core";
+import express, { json } from "express";
 
 let app = express();
-app.use(express.json());
+app.use(json());
 
 app.get("/token", async (req, res) => {
-    let api = new ReloadlyAuthentication.AuthenticationApi(
+    let api = new AuthenticationApi(
     "aLZwVjy3BTrx8yaFsb4iKgqFE2VGkpfs",
     "jOzKRlZVfB-WNlS88TEVt9uiNZtubg-XlKcY8D0cOWiZa6OIjcPe2BI7ZLAZ2an",
-    ReloadlyCore.ServiceURLs.AIRTIME_SANDBOX
+    ServiceURLs.AIRTIME_SANDBOX
     );
     let operation = api.clientCredentials();
     let request = operation.getAccessToken();
@@ -33,4 +33,6 @@ app.get("/token", async (req, res) => {
     </html>`);
 });
 
-app.listen(3000);
+app.listen(2000, () => {
+    console.log("server started on port 2000")
+});

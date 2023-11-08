@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Topup from '../src/topup.js';
-import Balance from '../../server/balance.js';
+
 
 import reportWebVitals from './reportWebVitals';
+import Home from './components/Home';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Topup />
-    <Balance />
-    
+
+    <Home />
+      
   </React.StrictMode>
 );
 
