@@ -1,22 +1,20 @@
-import { AirtimeApi } from "@reloadly/reloadly.airtime";
+import { AuthenticationApi } from "@reloadly/reloadly.authentication";
 import { ServiceURLs } from "@reloadly/reloadly.core";
 import express, { json } from "express";
 
-let app = express()
-app.use(json())
+let app = express();
+app.use(json());
 
-app.get("/balance", async (req, res) => {
-    let api = new AirtimeApi("aLZwVjy3BTrx8yaFsb4iKgqFE2VGkpfs", "jOzKRlZVfB-WNlS88TEVt9uiNZtubg-XlKcY8D0cOWiZa6OIjcPe2BI7ZLAZ2an", null, ServiceURLs.AIRTIME_SANDBOX);
-    let operation;
-    try {
-            operation = await api.accounts();
-    }
-    catch (err) {
-        res.send(err);
-    }
-    let request = operation.getBalance();
-    let balanceInfo = await request.execute();
-    console.log(balanceInfo)
+app.get("/token", async (req, res) => {
+    let api = new AuthenticationApi(
+    "aLZwVjy3BTrx8yaFsb4iKgqFE2VGkpfs",
+    "cuxyDVuqOw-mUvAfBg8SKzGdhN9BBz-c0HWX3asZg6TuuRIbXpWcj8onXw8X4JK",
+    ServiceURLs.AIRTIME_SANDBOX
+    );
+    let operation = api.clientCredentials();
+    let request = operation.getAccessToken();
+    let response = await request.execute();
+    console.log(response);
     res.send(`<html>
     <head>
         <meta charset="UTF-8">
@@ -28,13 +26,13 @@ app.get("/balance", async (req, res) => {
         <div class="container">
         <h1 class="display-4 text-center py-1">Top-up App</h1>
         <p class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
-            Your balance is ${balanceInfo.balance} ${balanceInfo.currencyCode} 
+        We've received your access token!
         </p>
         </div>
     </body>
     </html>`);
 });
 
-app.listen(5000, () => {
-    console.log("server started on port 5000")
-    });
+app.listen(2000, () => {
+    console.log("server started on port 2000")
+});
