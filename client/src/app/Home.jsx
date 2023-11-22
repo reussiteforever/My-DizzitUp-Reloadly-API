@@ -8,6 +8,7 @@ function Home() {
       <div>
         <Navbar />
         <h1>Hello DizzitUP!</h1>
+
         <Footer />
       </div>
     </div>
