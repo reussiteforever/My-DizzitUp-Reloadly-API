@@ -14,7 +14,7 @@ export const theme = {
     colors: {
       'custom-blue': '#20365b',
       'custom-yellow': '#ffc759',
-      'primary-color': '#e7e5de',
+      'primary-color': '#FCFCFB',
       'custom-light-grey': '#D3D3D3',
       // Add more custom colors here
     },
