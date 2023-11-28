@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "proxy": "http://localhost:2000",
   "description": "",
-  "main": "token.js",
+  "main": "home.js",
   "type": "module",
   "scripts": {
     "watch": "nodemon topup.js",
