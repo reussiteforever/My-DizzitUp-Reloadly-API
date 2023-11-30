@@ -12,10 +12,14 @@ export const theme = {
       'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
     },
     colors: {
-      'custom-blue': '#20365b',
-      'custom-yellow': '#ffc759',
+      'custom-blue': '#20365b', //primary color
+      'custom-yellow': '#FFC759', //secondary color
       'primary-color': '#FCFCFB',
-      'custom-light-grey': '#D3D3D3',
+      'custom-text': '#878FA4',
+      'custom-accent': '#B9B9B9',
+      'custom-white': '#FFFFFF',
+      'custom-black': '#000000',
+      'custom-blue-light': '#B1D5EF',
       // Add more custom colors here
     },
   },
