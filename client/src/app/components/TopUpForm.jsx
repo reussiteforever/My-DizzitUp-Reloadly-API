@@ -84,7 +84,7 @@ const MonetaryDropdown = ({ handleSelectValue }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
 
-  const monetaryValues = ["$5", "$10", "$20", "$50", "$100"];
+  const monetaryValues = ['5.00', '10.00', '20.00', '50.00', '100.00'];
 
   const toggleMenuValue = () => {
     setShowMenu(!showMenu);
@@ -122,7 +122,7 @@ const MonetaryDropdown = ({ handleSelectValue }) => {
       </div>
 
       {showMenu && (
-        <div className="absolute top-full mt-1 w-40 bg- border border-gray-300 rounded shadow-lg">
+        <div className="absolute top-full mt-1 w-40 bg-white border border-gray-300 rounded shadow-lg z-10">
           <div className="py-1">
             {monetaryValues.map((value, index) => (
               <button
@@ -172,24 +172,32 @@ const TopUpForm = () => {
   
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Ativar o indicador de carregamento
  
    try {
     const response = await axios.post('http://localhost:5002/topup', {
-      countryCode,
+      operatorId,
       selectedValue,
-      selectedCountry,
       recipientPhone,
-      senderPhone,
-      operatorId
+      senderPhone
     });
 
- setResponseMessage(response.data.topup); // Assuming 'topup' is the response property
-    } catch (error) {
-      setResponseMessage('Erro ao processar o top-up.');
-    }
+    console.log(response.data);
 
-    setLoading(false);
-  };
+ // Verificar a estrutura da resposta e definir a mensagem apropriada
+ if (response.data.topup && response.data.topup.message) {
+  setResponseMessage(response.data.topup.message);
+} else {
+  setResponseMessage('Top-up successful!');
+}
+} catch (error) {
+// Em caso de erro na solicitação, definir mensagem de erro
+setResponseMessage('Erro ao processar o top-up.');
+}
+
+setLoading(false); // Desativar o indicador de carregamento após a conclusão da solicitação
+};
+
 
   const handleSelectValue = (selectedValue) => {
     setSelectedValue(selectedValue);
@@ -209,7 +217,7 @@ const TopUpForm = () => {
         </div>
         <div className="text-center mb-3">
           <p>
-            Follow three easy steps to top-up in seconds. To do, please set the
+            Follow the steps to top-up in seconds. To do, please set the
             options below:
           </p>
         </div>
