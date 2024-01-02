@@ -1,8 +1,4 @@
-// index.js
-
-// This is a sample index.js file
-// You can add your server setup code here
-// For instance, creating a basic HTTP server
+//HTTP server
 
 import { createServer } from 'http';
 

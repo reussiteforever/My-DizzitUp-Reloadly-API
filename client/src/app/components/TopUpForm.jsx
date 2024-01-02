@@ -4,7 +4,7 @@ import axios from "axios";
 
 // Componente Countries
 const Countries = ({ handleSelectCountry }) => {
-  const [countries, setCountries] = useState([]);
+  const [countries, setCountries] = useState([]);  
   const [showMenu, setShowMenu] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState("");
 
@@ -215,8 +215,7 @@ setLoading(false); // Desativar o indicador de carregamento após a conclusão d
           <Countries handleSelectCountry={handleSelectCountry} />
           <div>Country: {selectedCountry}</div>
         </div>
-
-          <div className="flex flex-col space-y-3">
+        <div className="flex flex-col space-y-3">
           <input
             type="tel"
             placeholder="Sender's Mobile Number"
