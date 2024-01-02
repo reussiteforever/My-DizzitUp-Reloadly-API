@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+
 // Componente Countries
 const Countries = ({ handleSelectCountry }) => {
   const [countries, setCountries] = useState([]);
   const [showMenu, setShowMenu] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState("");
 
-  // const countries = ["USA", "Canada", "Brazil", "France", "Germany"]; // Lista de países disponíveis
   useEffect(() => {
     const fetchCountries = async () => {
       try {
         const response = await axios.get("http://localhost:5003/countries");
         setCountries(response.data);
       } catch (error) {
-        console.error("Error fetching countries:", error);
+        console.error("Error fetching countries", error);
       }
     };
 
@@ -153,23 +153,7 @@ const TopUpForm = () => {
   const [operatorId, setOperatorId] = useState("");
   const [selectedValue, setSelectedValue] = useState("");
   const [selectedCountry, setSelectedCountry] = useState("");
-  //   const [balance, setBalance] = useState(null); // State to hold the balance
 
-// // Fetch initial balance when component mounts
-// useEffect(() => {
-//   // Make an API request to get the initial balance
-//   const fetchBalance = async () => {
-//     try {
-//       const response = await axios.get("http://localhost:5001/balance");
-//       setBalance(response.data.balance);
-//     } catch (error) {
-//       console.error("Error fetching balance:", error);
-//     }
-//   };
-
-//   fetchBalance();
-// }, []);
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true); // Ativar o indicador de carregamento
@@ -232,7 +216,7 @@ setLoading(false); // Desativar o indicador de carregamento após a conclusão d
           <div>Country: {selectedCountry}</div>
         </div>
 
-        <div className="flex flex-col space-y-3">
+          <div className="flex flex-col space-y-3">
           <input
             type="tel"
             placeholder="Sender's Mobile Number"
@@ -264,22 +248,6 @@ setLoading(false); // Desativar o indicador de carregamento após a conclusão d
             Send
           </button>
         </div>
-
-        <div>
-        {/* <h2>
-          <strong>Balance Information</strong>
-        </h2>
-        {balance ? (
-          <>
-          
-            <p>
-              Your new balance: {balance.balance}
-            </p>
-          </>
-        ) : (
-          <p>Loading balance...</p>
-        )} */}
-      </div>
       </div>
     </form>
   );
