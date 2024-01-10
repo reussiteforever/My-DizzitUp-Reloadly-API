@@ -1,16 +1,19 @@
 import React from "react";
-import { Navbar } from "../components/navbar";
 import { Footer } from "../components/footer";
-import { Hero } from "../components/hero";
+import { Navbar } from "../components/navbar";
 
 function Bills() {
   return (
-    <div className="Container bg-primary-color">
-      <div>
-        <Navbar />
-        <Hero />
-        <Footer />
+    <div className="flex flex-col min-h-screen bg-custom-yellow">
+      <Navbar className="z-10" />
+
+      <div className="flex-grow flex items-center justify-center">
+        <h1 className="text-3xl text-white">This is the Payment Bills page</h1>
       </div>
+
+      
+
+      <Footer />
     </div>
   );
 }

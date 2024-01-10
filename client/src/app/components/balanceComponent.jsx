@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+
 function Balance() {
   const [balance, setBalance] = useState(null);
   
@@ -19,7 +20,7 @@ function Balance() {
   }, []);
 
   return (
-    <div className="flex flex-container m-15 bg-custom-blue text-white py-2 px-4 rounded-md border-2 border-white">
+    <div className="flex flex-container m-15 bg-custom-white text-custom-blue py-2 px-4 rounded-">
       <div>
         <h2>
           <strong>Balance Information</strong>
@@ -38,12 +39,10 @@ function Balance() {
       <div className="m-2 bg-custom-blue hover:bg-custom-white hover:text-custom-blue text-white py-2 px-4 rounded-md border-2 hover:border-custom-blue shadow-xl">
       <button
         type="button"
-        
       >
         Recharge wallet
       </button>
       </div>
-      
     </div>
   );
 }

@@ -1,17 +1,17 @@
 import React from "react";
 import TopUpForm from "../components/TopUpForm";
 import BalanceComponent from "../components/balanceComponent";
-
-// import { Navbar } from "../components/navbar";
-// import { Footer } from "../components/footer";
-// import { Hero } from "../components/hero";
+import { Footer } from "../components/footer";
+import { Navbar } from "../components/navbar";
 
 function Airtime() {
   return (
     <div className="Container bg-primary-color">
-      <div >
-      <BalanceComponent />
+      <div className=" items-center justify-center">
+      <Navbar />
       <TopUpForm />
+      <BalanceComponent />
+      <Footer />
       </div>
     </div>
   );
